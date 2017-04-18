@@ -46,9 +46,40 @@
 
   curl -i -X POST \
   --url http://localhost:8001/apis/ \
-  --data 'name=sunnyvale' \
-  --data 'upstream_url=http://sunnyvale.ca.gov' \
-  --data 'uris=/sunnyvale'
+  --data 'name=jsontest' \
+  --data 'upstream_url=http://ip.jsontest.com' \
+  --data 'uris=/jsontest'
   
+
+  "2abeff57-dab2-4fb9-87f7-3bcc8f11c014"
   
+  curl -i \
+  --url http://localhost:8001/apis/
+
+  curl -i -X PATCH \
+  --url http://localhost:8001/apis/mountain-view/ \
+  --data 'name=mountain-view' \
+  --data 'upstream_url=http://54.215.197.21:9090/v3/starbucks/' \
+  --data 'uris=/mountainview'
+
+  curl -i -X PATCH \
+  --url http://localhost:8001/apis/jsontest/ \
+  --data 'name=jsontest' \
+  --data 'upstream_url=http://54.215.197.21:9090/v3/starbucks/orders' \
+  --data 'uris=/jsontest'
+
+  curl -i -X PATCH \
+  --url http://localhost:8001/apis/jsontest/ \
+  --data 'name=jsontest' \
+  --data 'upstream_url=http://54.215.197.21:9090/v3/starbucks' \
+  --data 'uris=/jsontest'
+
+
+  curl -i -X PATCH \
+  --url http://localhost:8001/apis/palo-alto/ \
+  --data 'name=palo-alto' \
+  --data 'upstream_url=http://54.183.245.6:5000/starbucks' \
+  --data 'uris=/paloalto'
+
+  http://54.183.210.6:9090/v3/starbucks/order/d3a7b9af-8ac3-4b45-bfb5-4d09fa3f400c
   
