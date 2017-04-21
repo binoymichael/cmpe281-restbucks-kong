@@ -83,3 +83,9 @@
 
   http://54.183.210.6:9090/v3/starbucks/order/d3a7b9af-8ac3-4b45-bfb5-4d09fa3f400c
   
+
+  curl -i -X PATCH \
+  --url http://localhost:8001/apis/jsontest/ \
+  --data 'name=jsontest' \
+  --data 'upstream_url=http://54.215.197.21:9090/v3/starbucks' \
+  --data 'uris=/jsontest'

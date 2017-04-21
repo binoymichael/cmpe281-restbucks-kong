@@ -21,6 +21,8 @@ https://www.digitalocean.com/community/tutorials/how-to-run-a-multi-node-cluster
 
 10.0.1.134,10.0.1.247,10.0.1.81
 
+10.0.1.97,10.0.1.168,10.0.1.178
+
 
 "10.0.1.134:9042"
 "10.0.1.247:9042"
@@ -38,4 +40,4 @@ sudo yum install kong-0.10.1.aws.rpm --nogpgcheck
 
 
 
-
+sudo cassandra -R &
