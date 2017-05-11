@@ -72,6 +72,27 @@ This documents covers these major topics
     - Run cassandra by executing the bin/cassandra file. Start the instances in
       the same order that you have specified in the seeds parameter
 
+  - Install Kong on the public facing instance
+  ```
+  curl -LO https://github.com/Mashape/kong/releases/download/0.10.1/kong-0.10.1.aws.rpm
+  sudo yum install kong-0.10.1.aws.rpm --nogpgcheck
+  ```
+  - Configure the Kong Instance at /etc/kong/kong.conf
+    - Update the database to cassandra
+    - Update the cassandra contact points
+    ```
+      kong start
+    ```
+
+  - Add API routes
+    ```
+      curl -i -X POST \
+      --url http://localhost:8001/apis/ \
+      --data 'name=sunnyvale' \
+      --data 'upstream_url=http://ec2-54-67-122-67.us-west-1.compute.amazonaws.com' \
+      --data 'uris=/sunnyvale'
+    ```
+
 ### Steps to install the test Kong API Instance
 - Launch AWS EC2 instance with Amazon Linux AMI 
 - Install docker in the instance
@@ -120,6 +141,12 @@ This documents covers these major topics
 
   curl -i -X POST \
   --url http://localhost:8001/apis/ \
+  --data 'name=sunnyvale' \
+  --data 'upstream_url=http://www.cityofpaloalto.org' \
+  --data 'uris=/paloalto'
+
+  curl -i -X POST \
+  --url http://localhost:8001/apis/ \
   --data 'name=jsontest' \
   --data 'upstream_url=http://ip.jsontest.com' \
   --data 'uris=/jsontest'
@@ -154,11 +181,17 @@ This documents covers these major topics
   --data 'upstream_url=http://54.215.210.32:5000/starbucks' \
   --data 'uris=/example2/'
 
+  curl -i -X POST \
+  --url http://localhost:8001/apis/ \
+  --data 'name=sunnyvale' \
+  --data 'upstream_url=http://ec2-54-67-122-67.us-west-1.compute.amazonaws.com' \
+  --data 'uris=/sunnyvale'
+
   curl -i -X PATCH \
   --url http://localhost:8001/apis/sunnyvale/ \
   --data 'name=sunnyvale' \
-  --data 'upstream_url=ec2-54-67-122-67.us-west-1.compute.amazonaws.com' \
-  --data 'uris=/'
+  --data 'upstream_url=http://ec2-54-67-122-67.us-west-1.compute.amazonaws.com' \
+  --data 'uris=/sunnyvale'
 
   curl -i -X PATCH \
   --url http://localhost:8001/apis/palo-alto/ \

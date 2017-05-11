@@ -31,7 +31,7 @@ sudo rm -rf /var/lib/cassandra/data/system/*
 
 
 
-https://github.com/Mashape/kong/releases/download/0.10.1/kong-0.10.1.aws.rpm
+curl -LO https://github.com/Mashape/kong/releases/download/0.10.1/kong-0.10.1.aws.rpm
 sudo yum install epel-release
 sudo yum install kong-0.10.1.aws.rpm --nogpgcheck
 
