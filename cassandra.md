@@ -1,4 +1,10 @@
 - Install Java 8
+
+
+
+- 202 assignment
+  - read decorator pattern
+- 281 Lab
 Install Oracle java instead of Open JDK
 
 1. Download the JRE rpm file
