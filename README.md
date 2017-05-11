@@ -1,9 +1,11 @@
 ### Kong API Gateway
 This documents covers these major topics
-- Setting up a Kong API Gateway backed by a 3 Node Cassandra configuration
-- Configuring API routes in Kong
-- Recommended settings for running on t2.micro instances
-- Running Kong/Cassandra Instance via Docker
+- [Setting up a Kong API Gateway backed by a 3 Node Cassandra
+  configuration](production.md)
+- [Recommended settings for running on t2.micro instances](production.md)
+- [Configuring API routes in Kong](production.md)
+- [Running Kong/Cassandra Instance via Docker](test.md)
+- [Installing Kong/Cassandra via AWS CloudFormation template](test.md)
 
 ### Setting up Kong + 3 Node Cassandra configuration
 - Create VPC with public + private subnet
